@@ -453,6 +453,15 @@
           }
         }
       },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "SSH.NET/2020.0.2": {
         "type": "package",
         "dependencies": {
@@ -739,6 +748,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.Extensions.Hosting.WindowsServices": "6.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "SSH.NET": "2020.0.2",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
@@ -1412,6 +1422,33 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "SSH.NET/2020.0.2": {
       "sha512": "G0dNlTBAM00KZXv1wWVwgg26d9/METcM6qWBpNQwllzQmmbu+Zu+FS1L1X4fFgGdPu3e8k9mmTBu6SwtQ0614g==",
       "type": "package",
@@ -1977,11 +2014,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\TestApp\\TestApp.csproj",
+      "projectUniqueName": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\TestApp\\TestApp.csproj",
       "projectName": "TestApp",
-      "projectPath": "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\TestApp\\TestApp.csproj",
+      "projectPath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\TestApp\\TestApp.csproj",
       "packagesPath": "C:\\Users\\서정훈\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\TestApp\\obj\\",
+      "outputPath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\TestApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\서정훈\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1998,8 +2035,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj": {
-              "projectPath": "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj"
+            "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj": {
+              "projectPath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj"
             }
           }
         }

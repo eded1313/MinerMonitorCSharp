@@ -24,7 +24,7 @@ namespace MinerMonitor.Connect
             info = setting.GetConnectionInfo(host, port, username, password);
         }
 
-        public bool Connect()
+        public async Task<bool> Connect()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace MinerMonitor.Connect
                 client = new SshClient(info);
                 client.Connect();
                 Miner.Miner miner = new Miner.Miner(client);
-                if (!miner.ExcuteTask())
+                if (! await miner.ExcuteTask())
                 {
                     return false;
                 }

@@ -1,4 +1,5 @@
-﻿using Renci.SshNet;
+﻿using MinerMonitor.Utils;
+using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,7 @@ namespace MinerMonitor.Miner
         protected const string GPU_STATE_CMD = "nvidia-smi | grep Version";
         protected const string DISK_STATE_CMD = "df -h | grep lotus";
         protected const string SYNC_STATE_CMD = "lotus sync wait | grep Done";
+        protected const string SLACK_WEBHOOK = "https://hooks.slack.com/services/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";
 
         public Miner(SshClient Client)
         {
@@ -40,35 +42,58 @@ namespace MinerMonitor.Miner
             return cmd;
         }
 
-        public bool ExcuteTask()
+        public async Task<bool> ExcuteTask()
         {
             //AddCommandString(WORKER_STATE_CMD);
             AddCommandString(GPU_STATE_CMD);
             AddCommandString(DISK_STATE_CMD);
             AddCommandString(SYNC_STATE_CMD);
 
-            foreach (var command in _commandString)
+            if (!await WriteMinerLog())
+                return false;
+
+            return true;
+        }
+
+        private async Task<bool> WriteMinerLog()
+        {
+            string currentDate = DateTime.Now.ToString("yyyyMMdd");
+            string filePath = @"./server/"+ currentDate + "_minerLog.txt";
+            string newLine = Environment.NewLine;
+            List<string> lines = new List<string>();
+
+            try
             {
-                string result = GetCommandLine(command);
-                try
+                foreach (var command in _commandString)
                 {
+                    string result = GetCommandLine(command);
                     Console.WriteLine("===========================================");
                     Console.WriteLine(result);
-                    List<string> lines = new List<string>();
                     lines.Add(result);
+                }
 
-                    using (StreamWriter outputFile = new StreamWriter(@"C:\Users\서정훈\Desktop\Work\Miner-CSharp\MinerMonitor\MinerMonitor\bin\Debug\netcoreapp3.1\server\miner_log.txt"))
-                    {
-                        foreach (var line in lines)
-                        {
-                            outputFile.WriteLine(line);
-                        }
-                    }
-                }
-                catch (Exception ex)
+                string text = string.Empty;
+
+                foreach (var line in lines)
                 {
-                    Console.WriteLine(ex.ToString());
+                    text += line + newLine;
                 }
+                text += "===========================================" + newLine;
+
+                await File.AppendAllTextAsync(filePath, text);
+
+                SlackClient client = new SlackClient(SLACK_WEBHOOK);
+
+                if (!await client.SendMessageAsync(text))
+                {
+                    Console.WriteLine("Fail Send Message");
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
 
             return true;

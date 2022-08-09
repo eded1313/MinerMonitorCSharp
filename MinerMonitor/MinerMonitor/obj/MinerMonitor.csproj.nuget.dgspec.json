@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj": {}
+    "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj": {
+    "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj",
+        "projectUniqueName": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj",
         "projectName": "MinerMonitor",
-        "projectPath": "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj",
+        "projectPath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerMonitor\\MinerMonitor.csproj",
         "packagesPath": "C:\\Users\\서정훈\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\서정훈\\Desktop\\Work\\Miner-CSharp\\MinerMonitor\\MinerMonitor\\obj\\",
+        "outputPath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerMonitor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\서정훈\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "Microsoft.Extensions.Hosting.WindowsServices": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "SSH.NET": {
               "target": "Package",

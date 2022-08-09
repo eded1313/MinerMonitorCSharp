@@ -11,7 +11,7 @@ namespace MinerMonitor
     {
         protected static string key = "lotusminermonitoring1234";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace MinerMonitor
 
                 SSHConnection connection = new SSHConnection(host, port, username, passwd);
 
-                if (!connection.Connect())
+                if (!await connection.Connect())
                 {
                     Console.WriteLine("Connection Fail");
                     return;
