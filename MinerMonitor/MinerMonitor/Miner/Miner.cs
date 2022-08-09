@@ -59,7 +59,6 @@ namespace MinerMonitor.Miner
         {
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
             string filePath = @"./server/"+ currentDate + "_minerLog.txt";
-            string newLine = Environment.NewLine;
             List<string> lines = new List<string>();
 
             try
@@ -76,9 +75,9 @@ namespace MinerMonitor.Miner
 
                 foreach (var line in lines)
                 {
-                    text += line + newLine;
+                    text += line + Environment.NewLine;
                 }
-                text += "===========================================" + newLine;
+                text += "===========================================" + Environment.NewLine;
 
                 await File.AppendAllTextAsync(filePath, text);
 
