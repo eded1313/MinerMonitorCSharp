@@ -58,6 +58,9 @@ namespace MinerMonitor.Miner
         private async Task<bool> WriteMinerLog()
         {
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
+
+            CheckBeforeFile();
+
             string filePath = @"./server/"+ currentDate + "_minerLog.txt";
             List<string> lines = new List<string>();
 
@@ -72,6 +75,7 @@ namespace MinerMonitor.Miner
                 }
 
                 string text = string.Empty;
+                text += "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]" + Environment.NewLine;
 
                 foreach (var line in lines)
                 {
@@ -96,6 +100,18 @@ namespace MinerMonitor.Miner
             }
 
             return true;
+        }
+
+        private void CheckBeforeFile()
+        {
+            string beforeDate = DateTime.Now.AddDays(-7).ToString("yyyyMMdd");
+            string filePath = @"./server/" + beforeDate + "_minerLog.txt";
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                return;
+            }
         }
     }
 }

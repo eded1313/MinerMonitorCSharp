@@ -31,7 +31,7 @@ namespace MinerMonitor.Utils
             return response;
         }
 
-        public async Task<bool> SendMessageAsync(string message /*, string slackUrl = "https://hooks.slack.com/services/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"*/)
+        public async Task<bool> SendMessageAsync(string message)
         {
             string paramJson = System.Text.Json.JsonSerializer.Serialize(new { text = message });
 
