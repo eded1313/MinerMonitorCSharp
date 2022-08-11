@@ -32,10 +32,7 @@ namespace MinerMonitor.Miner
             _client = Client;
         }
 
-        public void AddCommandString(string command)
-        {
-            _commandString.Add(command);
-        }
+        public void AddCommandString(string command) => _commandString.Add(command);
 
         private string GetCommandLine(string command)
         {
@@ -43,7 +40,7 @@ namespace MinerMonitor.Miner
             return cmd;
         }
 
-        public async Task<bool> ExcuteTask()
+        public async Task<bool> ExcuteTaskAsync()
         {
             //AddCommandString(WORKER_STATE_CMD);
             //AddCommandString(GPU_STATE_CMD);

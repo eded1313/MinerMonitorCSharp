@@ -28,7 +28,7 @@ namespace MinerMonitor
                 string passwd = server.Split(",")[3].ToString();
 
 
-                SSHConnection connection = new SSHConnection(host, port, username, passwd);
+                SSHConnection connection = new SSHConnection(host, port, username, passwd, "Golden 1호");
 
                 if (!await connection.Connect())
                 {
