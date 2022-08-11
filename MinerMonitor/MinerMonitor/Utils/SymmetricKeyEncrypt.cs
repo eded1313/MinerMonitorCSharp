@@ -23,7 +23,7 @@ public class SymmetricKeyEncrypt
 
     public string url = string.Empty;
     private static byte[] rijnKey = null;
-    private static byte[] rijnIV = Encoding.UTF8.GetBytes("humaxcollaboration");
+    private static byte[] rijnIV = Encoding.UTF8.GetBytes("lotusminermonitors");
 
 	public SymmetricKeyEncrypt(EncryptType type, string key)
 	{

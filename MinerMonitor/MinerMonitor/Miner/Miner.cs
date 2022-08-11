@@ -24,6 +24,7 @@ namespace MinerMonitor.Miner
         protected const string GPU_STATE_CMD = "nvidia-smi | grep Version";
         protected const string DISK_STATE_CMD = "df -h | grep lotus";
         protected const string SYNC_STATE_CMD = "lotus sync wait | grep Done";
+
         protected const string SLACK_WEBHOOK = "https://hooks.slack.com/services/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";
 
         public Miner(SshClient Client)
@@ -45,24 +46,26 @@ namespace MinerMonitor.Miner
         public async Task<bool> ExcuteTask()
         {
             //AddCommandString(WORKER_STATE_CMD);
-            AddCommandString(GPU_STATE_CMD);
+            //AddCommandString(GPU_STATE_CMD);
             AddCommandString(DISK_STATE_CMD);
             AddCommandString(SYNC_STATE_CMD);
 
-            if (!await WriteMinerLog())
+            if (!await MinerLogAsync())
                 return false;
 
             return true;
         }
 
-        private async Task<bool> WriteMinerLog()
+        private async Task<bool> MinerLogAsync()
         {
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
+            string folderpath = @"./MinerLog";
+            string filePath = folderpath + "/" + currentDate + "_minerLog.txt";
+            string logText = "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]" + Environment.NewLine;
+            string message = "##################################################" + Environment.NewLine;
 
             CheckBeforeFile();
-
-            string filePath = @"./server/"+ currentDate + "_minerLog.txt";
-            List<string> lines = new List<string>();
+            CheckFileExist(folderpath, filePath);
 
             try
             {
@@ -71,25 +74,20 @@ namespace MinerMonitor.Miner
                     string result = GetCommandLine(command);
                     Console.WriteLine("===========================================");
                     Console.WriteLine(result);
-                    lines.Add(result);
+
+                    logText += result + Environment.NewLine;
+                    
+                    ConvertMessage(result, command, ref message);
                 }
 
-                string text = string.Empty;
-                text += "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]" + Environment.NewLine;
+                logText += "===========================================" + Environment.NewLine;
+                await File.AppendAllTextAsync(filePath, logText);
 
-                foreach (var line in lines)
+                message += Environment.NewLine + "##################################################";
+
+                if (!await SendMessageAsync(message))
                 {
-                    text += line + Environment.NewLine;
-                }
-                text += "===========================================" + Environment.NewLine;
-
-                await File.AppendAllTextAsync(filePath, text);
-
-                SlackClient client = new SlackClient(SLACK_WEBHOOK);
-
-                if (!await client.SendMessageAsync(text))
-                {
-                    Console.WriteLine("Fail Send Message");
+                    Console.WriteLine("using slack bot send message fail");
                     return false;
                 }
 
@@ -105,12 +103,87 @@ namespace MinerMonitor.Miner
         private void CheckBeforeFile()
         {
             string beforeDate = DateTime.Now.AddDays(-7).ToString("yyyyMMdd");
-            string filePath = @"./server/" + beforeDate + "_minerLog.txt";
+            string filePath = @"./MinerLog/" + beforeDate + "_minerLog.txt";
 
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
                 return;
+            }
+        }
+
+        private void CheckFileExist(string folder, string file)
+        {
+            DirectoryInfo di = new DirectoryInfo(folder);
+
+            if (!di.Exists)
+                di.Create();
+
+            if (!File.Exists(file))
+                File.Create(file);
+        }
+
+        private async Task<bool> SendMessageAsync(string message)
+        {
+            try
+            {
+                SlackClient client = new SlackClient(SLACK_WEBHOOK);
+                if (!await client.SendMessageAsync(message))
+                {
+                    Console.WriteLine("Fail Send Message");
+                    return false;
+                }
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        private void ConvertMessage(string text, string command, ref string message)
+        {
+            try
+            {
+                string msg = string.Empty;
+
+                if (command.Equals(DISK_STATE_CMD))
+                {
+                    string[] dfResult = text.Split("\n");
+
+                    foreach (var res in dfResult)
+                    {
+                        int per = 0;
+                        if (!string.IsNullOrEmpty(res))
+                        {
+                            string dfr = res.Substring(res.IndexOf("%") - 2, 2).TrimStart();
+                            per = Convert.ToInt32(dfr);
+                        }
+
+                        if (per > 70)
+                        {
+                            message += res + "\n";
+                        }
+                    }
+                }
+                else if (command.Equals(SYNC_STATE_CMD))
+                {
+                    if (text.Equals("Done!\n"))
+                    {
+                        message += "OK!";
+                    }
+                }
+                else
+                {
+                    message += text;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }

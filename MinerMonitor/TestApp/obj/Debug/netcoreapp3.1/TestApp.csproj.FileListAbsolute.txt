@@ -144,3 +144,4 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcor
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.genruntimeconfig.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

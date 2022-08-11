@@ -1,0 +1,120 @@
+[2022-08-12 00:03:58]
+| NVIDIA-SMI 510.54       Driver Version: 510.54       CUDA Version: 11.6     |
+
+===========================================
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  116M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   37T  200T  16% /home/ik/.lotusminer2
+
+===========================================
+Done!
+
+===========================================
+[2022-08-12 00:19:13]
+| NVIDIA-SMI 510.54       Driver Version: 510.54       CUDA Version: 11.6     |
+
+===========================================
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  117M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   37T  200T  16% /home/ik/.lotusminer2
+
+===========================================
+Done!
+
+===========================================
+[2022-08-12 00:30:16]
+| NVIDIA-SMI 510.54       Driver Version: 510.54       CUDA Version: 11.6     |
+
+===========================================
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  113M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   37T  200T  16% /home/ik/.lotusminer2
+
+===========================================
+Done!
+
+===========================================
+[2022-08-12 00:32:07]
+| NVIDIA-SMI 510.54       Driver Version: 510.54       CUDA Version: 11.6     |
+
+===========================================
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  117M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   37T  200T  16% /home/ik/.lotusminer2
+
+===========================================
+Done!
+
+===========================================
+[2022-08-12 00:35:03]
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  112M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   37T  200T  16% /home/ik/.lotusminer2
+
+Done!
+
+===========================================
+[2022-08-12 00:35:35]
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  116M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   37T  200T  16% /home/ik/.lotusminer2
+
+Done!
+
+===========================================
+[2022-08-12 00:35:51]
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  109M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   37T  200T  16% /home/ik/.lotusminer2
+
+Done!
+
+===========================================
+[2022-08-12 00:36:19]
+/dev/nvme4n1         1.8T  1.2T  610G  65% /home/ik/.lotus
+lotusminer            11T  109M   11T   1% /home/ik/.lotusminer
+/dev/mapper/vg3-lv3  197T  1.4T  196T   1% /home/ik/.lotusminer5
+/dev/mapper/vg5-lv5  197T  1.4T  196T   1% /home/ik/.lotusminer1
+/dev/mapper/vg4-lv4  197T  1.4T  196T   1% /home/ik/.lotusminer6
+/dev/mapper/vg2-lv2  213T   14T  200T   7% /home/ik/.lotusminer4
+/dev/mapper/vg1-lv1  237T   37T  200T  16% /home/ik/.lotusminer3
+/dev/mapper/vg-lv    237T   38T  200T  16% /home/ik/.lotusminer2
+
+Done!
+
+===========================================
