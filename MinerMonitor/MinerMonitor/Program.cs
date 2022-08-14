@@ -26,9 +26,10 @@ namespace MinerMonitor
                 int port = Convert.ToInt32(server.Split(",")[1].ToString());
                 string username = server.Split(",")[2].ToString();
                 string passwd = server.Split(",")[3].ToString();
+                string devicename = "Golden 1호";
 
 
-                SSHConnection connection = new SSHConnection(host, port, username, passwd, "Golden 1호");
+                SSHConnection connection = new SSHConnection(host, port, username, passwd, devicename);
 
                 if (!await connection.Connect())
                 {

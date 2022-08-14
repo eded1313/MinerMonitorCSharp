@@ -78,7 +78,8 @@ namespace MinerMonitor.Miner
                 }
 
                 logText += "===========================================" + Environment.NewLine;
-                await File.AppendAllTextAsync(filePath, logText);
+                //await File.AppendAllTextAsync(filePath, logText);
+                await WriteFileAsync(filePath, logText);
 
                 message += Environment.NewLine + "##################################################";
 
@@ -138,6 +139,16 @@ namespace MinerMonitor.Miner
                 Console.WriteLine(ex.Message);
                 return false;
             }
+        }
+
+        private static async Task WriteFileAsync(string file, string content)
+        {
+            Console.WriteLine("Async Write File has started");
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(file)))
+            {
+                await outputFile.WriteAsync(content);
+            }
+            Console.WriteLine("Async Write File has completed");
         }
 
         private void ConvertMessage(string text, string command, ref string message)

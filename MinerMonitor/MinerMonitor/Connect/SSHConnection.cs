@@ -16,7 +16,6 @@ namespace MinerMonitor.Connect
         public IReadOnlyDictionary<string, object> ServerInfo => _serverInfo;
         private Dictionary<string, object> _serverInfo = new Dictionary<string, object>();
         private ConnectionInfo info;
-        public string Device => _deviceName;
         private string _deviceName;
 
         public SSHConnection(string host, int port, string username, string password, string devicename)
@@ -30,7 +29,6 @@ namespace MinerMonitor.Connect
         {
             try
             {
-
                 client = new SshClient(info);
                 client.Connect();
                 Miner.Miner miner = new Miner.Miner(client);
