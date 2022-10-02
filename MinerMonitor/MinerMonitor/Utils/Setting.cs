@@ -28,6 +28,8 @@ namespace MinerMonitor.Utils
             string path = @".\server\server.txt";
             result = File.ReadAllLines(path);
 
+
+
             return result;
         }
 

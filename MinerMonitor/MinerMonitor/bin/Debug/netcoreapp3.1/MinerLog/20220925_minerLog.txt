@@ -1,0 +1,9 @@
+[2022-09-25 18:48:48]
+lotuschain      3.6T  3.1T  437G  88% /home/kosan/.lotus
+lotusminer      336T  316T   20T  95% /home/kosan/.lotusminer
+lotusminer1      79T   59T   21T  75% /home/kosan/.lotusminer1
+lotusminer2      79T   59T   21T  75% /home/kosan/.lotusminer2
+
+Done!
+
+===========================================

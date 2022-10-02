@@ -22,7 +22,7 @@ namespace MinerMonitor
                 SymmetricKeyEncrypt encrypt = new SymmetricKeyEncrypt(SymmetricKeyEncrypt.EncryptType.FAST_AES256, key);
                 string server = encrypt.AES256(SymmetricKeyEncrypt.DesType.Decrypt, serverInfo[0]);
 
-                string host = server.Split(",")[0].ToString();
+                string host = server.Split(",")[0].ToString().Replace("\r\n", "");
                 int port = Convert.ToInt32(server.Split(",")[1].ToString());
                 string username = server.Split(",")[2].ToString();
                 string passwd = server.Split(",")[3].ToString();

@@ -137,4 +137,5 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Debug\n
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Debug\netcoreapp3.1\MinerMonitor.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Debug\netcoreapp3.1\MinerMonitor.genruntimeconfig.cache
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Debug\netcoreapp3.1\MinerMonitor.csprojAssemblyReference.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Debug\netcoreapp3.1\MinerMonitor.csproj.AssemblyReference.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Debug\netcoreapp3.1\MinerMonitor.GeneratedMSBuildEditorConfig.editorconfig
