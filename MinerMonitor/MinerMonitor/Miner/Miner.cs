@@ -1,51 +1,52 @@
-﻿using MinerMonitor.Utils;
-using Renci.SshNet;
+﻿using Renci.SshNet;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
+using MinerMonitor.Utils;
+using MinerDaemon.Helper;
+using System.Reflection;
+using Miner.Helper;
+using static Miner.Helper.Setting;
+using MinerDaemon.Enum;
 
 namespace MinerMonitor.Miner
 {
-    public interface IMinerCommand
+    public class Miner
     {
-        List<string> CommandString { get; }
-        void AddCommandString(string command);
-    }
+        ILogger _logger = new Logger();
 
-    public class Miner : IMinerCommand
-    {
         private List<string> _commandString = new List<string>();
-        public List<string> CommandString => _commandString;
-        private SshClient _client;
-
-        protected const string WORKER_STATE_CMD = "lotus-miner sealing workers | grep host";
-        protected const string GPU_STATE_CMD = "nvidia-smi | grep Version";
-        protected const string DISK_STATE_CMD = "df -h | grep lotus";
-        protected const string SYNC_STATE_CMD = "lotus sync wait | grep Done";
-
-        protected const string SLACK_WEBHOOK = "https://hooks.slack.com/services/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";
-
-        public Miner(SshClient Client)
+        private readonly SshClient _client;
+        private readonly string _deviceName;
+        
+        public Miner(SshClient Client, string DeviceName)
         {
             _client = Client;
+            _deviceName = DeviceName;
         }
 
-        public void AddCommandString(string command) => _commandString.Add(command);
+        private void AddCommandString(string command) => _commandString.Add(command);
 
-        private string GetCommandLine(string command)
-        {
-            string cmd = _client.CreateCommand(command).Execute();
-            return cmd;
-        }
+        private string GetCommandLine(string command) => _client.CreateCommand(command).Execute();
 
-        public async Task<bool> ExcuteTaskAsync()
+        public async Task<bool> ExecuteTaskAsync()
         {
-            //AddCommandString(WORKER_STATE_CMD);
-            //AddCommandString(GPU_STATE_CMD);
-            AddCommandString(DISK_STATE_CMD);
-            AddCommandString(SYNC_STATE_CMD);
+            string currentHour = DateTime.Now.ToString("HH");
+            foreach (var pair in CommandHelper.CommandExeTime)
+            {
+                if (pair.Key == ExecuteType.ONCE)
+                {
+                    if (currentHour.Equals("10"))
+                        pair.Value.ForEach(x => AddCommandString(CommandHelper.MonitoringCommand[x]));
+                }
+                else
+                {
+                    pair.Value.ForEach(x => AddCommandString(CommandHelper.MonitoringCommand[x]));
+                }
+            }
 
             if (!await MinerLogAsync())
                 return false;
@@ -55,59 +56,86 @@ namespace MinerMonitor.Miner
 
         private async Task<bool> MinerLogAsync()
         {
-            string currentDate = DateTime.Now.ToString("yyyyMMdd");
-            string folderpath = @"./MinerLog";
-            string filePath = folderpath + "/" + currentDate + "_minerLog.txt";
-            string logText = "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]" + Environment.NewLine;
+            string logText = "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " => "+ _deviceName + "]" + Environment.NewLine;
             string message = "##################################################" + Environment.NewLine;
+            string resultText = string.Empty;
+            ResultType result = ResultType.SUCCESS;
 
             CheckBeforeFile();
-            CheckFileExist(folderpath, filePath);
 
             try
             {
                 foreach (var command in _commandString)
                 {
-                    string result = GetCommandLine(command);
-                    Console.WriteLine("===========================================");
-                    Console.WriteLine(result);
+                    string executeResult = GetCommandLine(command);
+                    string refCommand = CommandHelper.MonitoringCommand.FindKeyByValue(command).ToString();
 
-                    logText += result + Environment.NewLine;
-                    
-                    ConvertMessage(result, command, ref message);
+                    if (string.IsNullOrEmpty(refCommand))
+                    {
+                        _logger.Error("Invaild Command Extraction");
+                        return false;
+                    }
+
+                    logText += "Commnad => " + refCommand + Environment.NewLine + executeResult + Environment.NewLine;
+
+                    if (!ConvertMessage(executeResult, command, ref resultText))
+                        result = ResultType.DANGER;
                 }
 
                 logText += "===========================================" + Environment.NewLine;
-                //await File.AppendAllTextAsync(filePath, logText);
-                await WriteFileAsync(filePath, logText);
 
-                message += Environment.NewLine + "##################################################";
+                _logger.Info(logText);
+                message += resultText + Environment.NewLine + "##################################################";
 
-                if (!await SendMessageAsync(message))
+                /// 모든 명령어의 실행 결과가 정상일 때 slack message 보내지 않음
+                //if (string.IsNullOrEmpty(resultText))
+                //    return true;
+
+                var msgOption = new SlackMessageOptionModel { color = Setting.GetSlackMsgColor(result), title = "Miner Log Device: " + _deviceName, text = message };
+                if (!await SendMessageAsync(msgOption))
                 {
-                    Console.WriteLine("using slack bot send message fail");
+                    _logger.Error("using slack bot send message fail");
                     return false;
                 }
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                _logger.Error(ex.ToString());
             }
 
             return true;
         }
 
+        static async Task WriteFileAsync(string file, string content)
+        {
+            Console.WriteLine("Async Write File has started");
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(file)))
+            {
+                await outputFile.WriteAsync(content);
+            }
+            Console.WriteLine("Async Write File has completed");
+        }
+
         private void CheckBeforeFile()
         {
             string beforeDate = DateTime.Now.AddDays(-7).ToString("yyyyMMdd");
-            string filePath = @"./MinerLog/" + beforeDate + "_minerLog.txt";
+            string exeLogFilePath = Setting.GetAbsolutePath() + @"/logs/log.txt_" + beforeDate + ".txt";
+            string errorLogFilePath = Setting.GetAbsolutePath() + @"/logs/error.txt_" + beforeDate + ".txt";
 
-            if (File.Exists(filePath))
+            // 일주일 전 실행 Log Delete
+            if (File.Exists(exeLogFilePath))
             {
-                File.Delete(filePath);
-                return;
+                File.Delete(exeLogFilePath);
             }
+
+            // 일주일 전 Error Log Delete
+            if (File.Exists(errorLogFilePath))
+            {
+                File.Delete(errorLogFilePath);
+            }
+
+            return;
         }
 
         private void CheckFileExist(string folder, string file)
@@ -121,77 +149,116 @@ namespace MinerMonitor.Miner
                 File.Create(file);
         }
 
-        private async Task<bool> SendMessageAsync(string message)
+        private async Task<bool> SendMessageAsync(SlackMessageOptionModel message)
         {
             try
             {
-                SlackClient client = new SlackClient(SLACK_WEBHOOK);
+                SlackClient client = new SlackClient(Setting.TestChannel());
                 if (!await client.SendMessageAsync(message))
                 {
-                    Console.WriteLine("Fail Send Message");
+                    _logger.Info("Fail Send Message");
                     return false;
                 }
 
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                _logger.Error(ex.Message);
                 return false;
             }
         }
 
-        private static async Task WriteFileAsync(string file, string content)
-        {
-            Console.WriteLine("Async Write File has started");
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(file)))
-            {
-                await outputFile.WriteAsync(content);
-            }
-            Console.WriteLine("Async Write File has completed");
-        }
-
-        private void ConvertMessage(string text, string command, ref string message)
+        private bool ConvertMessage(string text, string command, ref string message)
         {
             try
             {
-                string msg = string.Empty;
-
-                if (command.Equals(DISK_STATE_CMD))
+                switch (CommandHelper.MonitoringCommand.FindKeyByValue(command))
                 {
-                    string[] dfResult = text.Split("\n");
-
-                    foreach (var res in dfResult)
-                    {
-                        int per = 0;
-                        if (!string.IsNullOrEmpty(res))
+                    case CommandEnum.DISK_STATE_CMD:
                         {
-                            string dfr = res.Substring(res.IndexOf("%") - 2, 2).TrimStart();
-                            per = Convert.ToInt32(dfr);
-                        }
+                            string[] dfResult = text.Split('\n');
+                            bool diskFlag = true;
+                            foreach (var res in dfResult)
+                            {
+                                int per = 0;
+                                if (!string.IsNullOrEmpty(res))
+                                {
+                                    string dfr = res.Substring(res.IndexOf("%") - 2, 2).TrimStart();
+                                    per = Convert.ToInt32(dfr);
+                                }
 
-                        if (per > 70)
-                        {
-                            message += res + "\n";
+                                if (per > 90)
+                                {
+                                    message += res + "\n";
+                                    diskFlag = false;
+                                }
+                            }
+                            return diskFlag;
                         }
-                    }
-                }
-                else if (command.Equals(SYNC_STATE_CMD))
-                {
-                    if (text.Equals("Done!\n"))
-                    {
-                        message += "OK!";
-                    }
-                }
-                else
-                {
-                    message += text;
+                    case CommandEnum.SYNC_STATE_CMD:
+                        {
+                            if (text.Equals("Done!\n"))
+                            {
+                                // SYNC_STATE_CMD 실행 결과가 정상일 경우 string.empty return
+                                message += "Sync OK!";
+                                //message += string.Empty;
+                                return true;
+                            }
+                            else
+                            {
+                                message += "Sync Fail!";
+                                return false;
+                            }
+                        }
+                    case CommandEnum.WORKER_STATE_CMD:
+                        {
+                            if (string.IsNullOrEmpty(text)) { return true; }
+                            else { message += text; return false; }
+
+                        }
+                    case CommandEnum.GPU_STATE_CMD:
+                        {
+                            message += text;
+                            return true;
+                        }
+                    case CommandEnum.SOCAT_STATE_UNKNOWN_CMD:
+                        {
+                            if (string.IsNullOrEmpty(text)) { return true; }
+                            else { message += text; return false; }
+                        }
+                    case CommandEnum.CHECK_EXPIRE:
+                        {
+                            if (text != "1")
+                            {
+                                message += "CHECK_EXPIRE: " + text;
+                                return false;
+                            }
+                            else
+                                return true;
+                        }
+                    case CommandEnum.SECTOR_FAULT:
+                        {
+                            if (string.IsNullOrEmpty(text))
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                message += "SECTOR_FAULT: " + text;
+                                return false;
+                            }
+                        }
+                    default:
+                        message += text;
+                        return false;
                 }
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                _logger.Error(ex.Message);
+                return false;
             }
         }
     }

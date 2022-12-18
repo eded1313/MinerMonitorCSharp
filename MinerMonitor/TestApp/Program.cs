@@ -1,7 +1,7 @@
-﻿using MinerMonitor.Utils;
+﻿using MinerMonitor.Helper;
+using MinerMonitor.Utils;
 using System;
 using System.Text;
-using static MinerMonitor.Utils.Encryption;
 
 namespace TestApp
 {

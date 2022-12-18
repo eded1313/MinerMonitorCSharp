@@ -1,4 +1,5 @@
-﻿using MinerMonitor.Connect;
+﻿using Miner.Helper;
+using MinerMonitor.Connect;
 using MinerMonitor.Utils;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,7 @@ namespace MinerMonitor
         {
             try
             {
-                Setting setting = new Setting();
-                string[] serverInfo = setting.GetServerInfo();
+                string[] serverInfo = Setting.GetServerInfo();
                 //await SendMessageAsync("Miner Monitoring Test Finish! - 2022.10.09");
                 #region Test Code
                 SymmetricKeyEncrypt encrypt = new SymmetricKeyEncrypt(SymmetricKeyEncrypt.EncryptType.FAST_AES256, key);
@@ -66,25 +66,6 @@ namespace MinerMonitor
             }
             
         }
-
-        private static async Task<bool> SendMessageAsync(string message)
-        {
-            try
-            {
-                SlackClient client = new SlackClient("https://hooks.slack.com/services/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");
-                if (!await client.SendMessageAsync(message))
-                {
-                    Console.WriteLine("Fail Send Message");
-                    return false;
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
+        
     }
 }

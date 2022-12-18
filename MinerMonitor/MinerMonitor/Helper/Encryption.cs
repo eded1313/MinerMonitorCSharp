@@ -7,13 +7,13 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MinerMonitor.Utils
+namespace MinerMonitor.Helper
 {
     public class Encryption
     {
         private SHA256Managed sha256Managed = new SHA256Managed();
         private RijndaelManaged aes = new RijndaelManaged();
-        protected static string _password = "MinerMonitorCSharp";
+        protected static string _password = "MinerMonitor";
         private byte[] Key { get; set; }
 
         public enum DesType

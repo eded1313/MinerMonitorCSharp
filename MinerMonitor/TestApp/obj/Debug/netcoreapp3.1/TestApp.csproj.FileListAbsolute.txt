@@ -136,7 +136,6 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcor
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\MinerMonitor.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\MinerMonitor.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\MinerMonitor.dll.config
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.csprojAssemblyReference.cache
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.AssemblyInfoInputs.cache
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.AssemblyInfo.cs
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.csproj.CoreCompileInputs.cache
@@ -145,3 +144,8 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcor
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.genruntimeconfig.cache
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.csproj.AssemblyReference.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\netcoreapp3.1\TestApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\MinerMonitor.deps.json
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\MinerMonitor.runtimeconfig.json
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\netcoreapp3.1\MinerMonitor.runtimeconfig.dev.json

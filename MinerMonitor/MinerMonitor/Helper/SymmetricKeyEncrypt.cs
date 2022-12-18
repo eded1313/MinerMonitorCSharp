@@ -25,12 +25,13 @@ public class SymmetricKeyEncrypt
     private static byte[] rijnKey = null;
     private static byte[] rijnIV = Encoding.UTF8.GetBytes("lotusminermonitors");
 
-	public SymmetricKeyEncrypt(EncryptType type, string key)
-	{
-		//
-		// TODO: 여기에 생성자 논리를 추가합니다.
-		//
-        if(type == EncryptType.DES) {
+    public SymmetricKeyEncrypt(EncryptType type, string key)
+    {
+        //
+        // TODO: 여기에 생성자 논리를 추가합니다.
+        //
+        if (type == EncryptType.DES)
+        {
             Key = ASCIIEncoding.ASCII.GetBytes(key);
         }
         else if (type == EncryptType.SECURITY_AES256)
@@ -54,19 +55,22 @@ public class SymmetricKeyEncrypt
             aes.Key = Encoding.UTF8.GetBytes(key);
             aes.IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         }
-        else if (type == EncryptType.ENCRYPTIT) {
+        else if (type == EncryptType.ENCRYPTIT)
+        {
             rijnKey = Encoding.UTF8.GetBytes(key);
         }
-	}
+    }
 
-    public enum EncryptType {
+    public enum EncryptType
+    {
         DES,
         SECURITY_AES256,
         FAST_AES256,
         ENCRYPTIT
     }
 
-    public enum DesType {
+    public enum DesType
+    {
         Encrypt,
         Decrypt,
     }
@@ -75,25 +79,27 @@ public class SymmetricKeyEncrypt
     // Key 값은 무조건 8자리
     public string EncryptResult(DesType type, string input)
     {
-        var des = new DESCryptoServiceProvider() { 
+        var des = new DESCryptoServiceProvider()
+        {
             Key = Key,
             IV = Key
         };
 
         MemoryStream ms = new MemoryStream();
- 
-        var property = new {
+
+        var property = new
+        {
             transform = type.Equals(DesType.Encrypt) ? des.CreateEncryptor() : des.CreateDecryptor(),
-            data = type.Equals(DesType.Encrypt) ?  Encoding.UTF8.GetBytes(input.ToCharArray()) : Convert.FromBase64String(input)
+            data = type.Equals(DesType.Encrypt) ? Encoding.UTF8.GetBytes(input.ToCharArray()) : Convert.FromBase64String(input)
         };
 
         CryptoStream cryStream = new CryptoStream(ms, property.transform, CryptoStreamMode.Write);
 
         var data = property.data;
- 
+
         cryStream.Write(data, 0, data.Length);
         cryStream.FlushFinalBlock();
- 
+
         return type.Equals(DesType.Encrypt) ? Convert.ToBase64String(ms.ToArray()) : Encoding.UTF8.GetString(ms.GetBuffer());
     }
     #endregion
