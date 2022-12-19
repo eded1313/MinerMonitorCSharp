@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tad13\\Desktop\\git_repository\\TestTool\\MinerMonitor\\MinerDB\\MinerDB.csproj": {}
+    "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerDB\\MinerDB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tad13\\Desktop\\git_repository\\TestTool\\MinerMonitor\\MinerDB\\MinerDB.csproj": {
+    "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerDB\\MinerDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tad13\\Desktop\\git_repository\\TestTool\\MinerMonitor\\MinerDB\\MinerDB.csproj",
+        "projectUniqueName": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerDB\\MinerDB.csproj",
         "projectName": "MinerDB",
-        "projectPath": "C:\\Users\\tad13\\Desktop\\git_repository\\TestTool\\MinerMonitor\\MinerDB\\MinerDB.csproj",
-        "packagesPath": "C:\\Users\\tad13\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tad13\\Desktop\\git_repository\\TestTool\\MinerMonitor\\MinerDB\\obj\\",
+        "projectPath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerDB\\MinerDB.csproj",
+        "packagesPath": "C:\\Users\\서정훈\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerDB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tad13\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\서정훈\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -55,8 +55,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -83,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     }

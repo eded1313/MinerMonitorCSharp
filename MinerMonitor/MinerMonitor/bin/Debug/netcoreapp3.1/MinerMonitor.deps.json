@@ -11,7 +11,8 @@
           "Microsoft.Extensions.Hosting.WindowsServices": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
           "SSH.NET": "2020.0.2",
-          "System.Configuration.ConfigurationManager": "6.0.0"
+          "System.Configuration.ConfigurationManager": "6.0.0",
+          "MinerSlack": "1.0.1.0"
         },
         "runtime": {
           "MinerMonitor.dll": {}
@@ -652,6 +653,14 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "MinerSlack/1.0.1.0": {
+        "runtime": {
+          "MinerSlack.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        }
       }
     }
   },
@@ -982,6 +991,11 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "MinerSlack/1.0.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

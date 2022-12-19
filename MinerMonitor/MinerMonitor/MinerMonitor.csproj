@@ -12,4 +12,10 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="MinerSlack">
+      <HintPath>..\MinerSlack\bin\Release\netcoreapp3.1\MinerSlack.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

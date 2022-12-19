@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
-using MinerMonitor.Utils;
 using MinerDaemon.Helper;
 using System.Reflection;
 using Miner.Helper;
 using static Miner.Helper.Setting;
 using MinerDaemon.Enum;
+using MinerSlack;
 
 namespace MinerMonitor.Miner
 {
@@ -91,8 +91,9 @@ namespace MinerMonitor.Miner
                 //if (string.IsNullOrEmpty(resultText))
                 //    return true;
 
-                var msgOption = new SlackMessageOptionModel { color = Setting.GetSlackMsgColor(result), title = "Miner Log Device: " + _deviceName, text = message };
-                if (!await SendMessageAsync(msgOption))
+                var msgOption = SlackOption.MakeSlackOption(SlackOption.GetSlackMsgColor(result), "Miner Log Device: " + _deviceName, message);
+                SlackAPI slack = new SlackAPI(SlackChannel.TEST_SLACK_WEBHOOK);
+                if (!await slack.ExecuteAsync(msgOption))
                 {
                     _logger.Error("using slack bot send message fail");
                     return false;
@@ -147,26 +148,6 @@ namespace MinerMonitor.Miner
 
             if (!File.Exists(file))
                 File.Create(file);
-        }
-
-        private async Task<bool> SendMessageAsync(SlackMessageOptionModel message)
-        {
-            try
-            {
-                SlackClient client = new SlackClient(Setting.TestChannel());
-                if (!await client.SendMessageAsync(message))
-                {
-                    _logger.Info("Fail Send Message");
-                    return false;
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex.Message);
-                return false;
-            }
         }
 
         private bool ConvertMessage(string text, string command, ref string message)

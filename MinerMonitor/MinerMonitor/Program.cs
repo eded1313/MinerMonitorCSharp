@@ -1,6 +1,5 @@
 ﻿using Miner.Helper;
 using MinerMonitor.Connect;
-using MinerMonitor.Utils;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

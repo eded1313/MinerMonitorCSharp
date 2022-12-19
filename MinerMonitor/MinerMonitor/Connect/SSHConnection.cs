@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Renci.SshNet;
 using Renci.SshNet.Common;
 using Miner.Helper;
-using MinerMonitor.Utils;
 using MinerDaemon.Helper;
 using MinerDaemon.Enum;
+using MinerSlack;
 
 namespace MinerMonitor.Connect
 {
@@ -47,8 +47,10 @@ namespace MinerMonitor.Connect
             {
                 _logger.Error(ex.Message);
                 string errMsg = "SSH connection to " + _deviceName + " server failed" + Environment.NewLine + "Check the log for more details";
-                var errOption = new SlackMessageOptionModel {color = Setting.GetSlackMsgColor(ResultType.DANGER), text = errMsg, title = "[Test] SSH Connection Fail!" };
-                if (!await SendMessageAsync(errOption))
+                var errOption = SlackOption.MakeSlackOption(SlackOption.GetSlackMsgColor(ResultType.DANGER), "[Test] SSH Connection Fail!", errMsg);
+
+                SlackAPI slack = new SlackAPI(SlackChannel.TEST_SLACK_WEBHOOK);
+                if (!await slack.ExecuteAsync(errOption))
                 {
                     _logger.Error("using slack bot send message fail");
                 }
@@ -61,26 +63,6 @@ namespace MinerMonitor.Connect
             }
 
             return true;
-        }
-
-        private async Task<bool> SendMessageAsync(SlackMessageOptionModel message)
-        {
-            try
-            {
-                SlackClient client = new SlackClient(Setting.TestChannel());
-                if (!await client.SendMessageAsync(message))
-                {
-                    _logger.Info("Fail Send Message");
-                    return false;
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex.Message);
-                return false;
-            }
         }
 
         public void Dispose()

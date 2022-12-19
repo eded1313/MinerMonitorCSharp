@@ -1,0 +1,4 @@
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Release\netcoreapp3.1\MinerMonitor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Release\netcoreapp3.1\MinerMonitor.AssemblyInfoInputs.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Release\netcoreapp3.1\MinerMonitor.AssemblyInfo.cs
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerMonitor\obj\Release\netcoreapp3.1\MinerMonitor.csproj.CoreCompileInputs.cache
