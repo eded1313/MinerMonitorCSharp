@@ -1,0 +1,10 @@
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\bin\Release\netcoreapp3.1\MinerSlack.deps.json
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\bin\Release\netcoreapp3.1\MinerSlack.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\bin\Release\netcoreapp3.1\MinerSlack.pdb
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\obj\Release\netcoreapp3.1\MinerSlack.csproj.AssemblyReference.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\obj\Release\netcoreapp3.1\MinerSlack.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\obj\Release\netcoreapp3.1\MinerSlack.AssemblyInfoInputs.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\obj\Release\netcoreapp3.1\MinerSlack.AssemblyInfo.cs
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\obj\Release\netcoreapp3.1\MinerSlack.csproj.CoreCompileInputs.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\obj\Release\netcoreapp3.1\MinerSlack.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerSlack\obj\Release\netcoreapp3.1\MinerSlack.pdb

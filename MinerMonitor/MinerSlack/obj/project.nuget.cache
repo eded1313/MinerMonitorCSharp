@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uNbFVzyX6VNCASZdEjuRSvX1scC+ZHHaNdMb09iPHiqqEdbU/r1I9UgL5zQx24ocszeuojG1yO1duB3vyb2xhA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerSlack\\MinerSlack.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\서정훈\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
