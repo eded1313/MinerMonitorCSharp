@@ -201,7 +201,7 @@ namespace MinerMonitor.Miner
                             if (text.Equals("Done!\n"))
                             {
                                 // SYNC_STATE_CMD 실행 결과가 정상일 경우 string.empty return
-                                message += "Sync OK!";
+                                message += "Sync OK!\n";
                                 //message += string.Empty;
                                 return true;
                             }
@@ -229,7 +229,7 @@ namespace MinerMonitor.Miner
                         }
                     case CommandEnum.CHECK_EXPIRE:
                         {
-                            if (text != "1")
+                            if (text != "1\n")
                             {
                                 message += "CHECK_EXPIRE: " + text;
                                 return false;
