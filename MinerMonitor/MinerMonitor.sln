@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinerMonitor", "MinerMonito
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{2F9AFF8F-8829-4A8F-9E99-F3A467BDD460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinerDB", "MinerDB\MinerDB.csproj", "{A2941110-DD3F-4990-A935-B24A3AF9C4E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinerDB", "MinerDB\MinerDB.csproj", "{A2941110-DD3F-4990-A935-B24A3AF9C4E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinerSlack", "MinerSlack\MinerSlack.csproj", "{A4D80303-5294-4EE0-9979-07F2B8F301A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A2941110-DD3F-4990-A935-B24A3AF9C4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2941110-DD3F-4990-A935-B24A3AF9C4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2941110-DD3F-4990-A935-B24A3AF9C4E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D80303-5294-4EE0-9979-07F2B8F301A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D80303-5294-4EE0-9979-07F2B8F301A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D80303-5294-4EE0-9979-07F2B8F301A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D80303-5294-4EE0-9979-07F2B8F301A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
