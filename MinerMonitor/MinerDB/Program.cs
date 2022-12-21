@@ -1,9 +1,15 @@
 ﻿using MinerDB.Dac;
 using MinerDB.DBConnect;
+using MinerDB.RowObject;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using TestDatabase;
+using TestDatabase.SQLDB;
+using TestDatabase.SQLDB.MSSQL;
 
 namespace MinerDB
 {
@@ -11,34 +17,36 @@ namespace MinerDB
     {
         static void Main(string[] args)
         {
-            string info2 = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Miner_db;User ID=ad_miner;Password=OSserver12!&;";
-            //string info2 =   "Data Source=10.255.0.18;Initial Catalog=BD;User ID=ad_web;Password=webrhksflwk@!;";
+            // 실제 Miner DB Connection 암호화 문자열
+            string connectString = "d7Pt1WHH9OZCj9eKrmsxiLewtdGZR9SWxddRuVd5mixG3Dq3nwSnQaPGCqq+ynxJvuYYPUE+J3YO28ocxcLT1yzxzP5EdvIoex44in1snBYElskye5A9Lc6KEBYl8J2cIpjXncHweU8=";
 
-            Console.WriteLine(info2);
 
-            TripleDESCryptoService crypto = new TripleDESCryptoService();
+            ExecuteDatabaseAsync(connectString);
 
-            string enc = crypto.Encrypt(info2);
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(enc);
+        }
 
-            Console.WriteLine(crypto.Decrypt(enc));
+        static void ExecuteDatabaseAsync(string connectionString)
+        {
+            string deviceid = "miner10001";
+            string host = "192.168.0.35";
+            int port = 2511;
+            string user = "testMiner";
+            string passwd = "1234";
+            string deviceName = "부산1";
 
-            try
-            {
-                // DB 서버 연결 문제: 서버를 찾을 수 없거나 액세스 할 수 없다
-                using (MinerDac dac = new MinerDac(enc))
-                {
-                    string spName = "Miner_db.dbo.GetServerInfo";
-                    string query = "select * from Miner_db.dbo.t_server_info";
-                    var temp = dac.Execute(DatabaseExecuteType.QUERY, Parameter.YES, query, new Dictionary<string, string>() { { "port", "33337" } });
-                    Console.WriteLine(temp.Rows[0]["host"]);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            DeviceRow row = new DeviceRow();
+            row.Initialize(deviceid, host, port, user, passwd, deviceName, QueryType.Update);
+
+
+            MsSQLTransaction transaction = new MsSQLTransaction();
+            var dbInfo = transaction.MakeConnectInfo(connectionString);
+            transaction.Connect(dbInfo.Ip, dbInfo.Port, dbInfo.DbName, dbInfo.User, dbInfo.Password);
+
+            List<SqlTransactionQueryInfo> queries = new List<SqlTransactionQueryInfo>();
+
+            TransactionHelper.AddSqlTransactionQueryInfo(row, ref queries);
+
+            //transaction.Execute(queries);
         }
     }
 }

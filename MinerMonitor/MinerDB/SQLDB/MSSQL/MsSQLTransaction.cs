@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MinerDB.DBConnect;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -22,7 +25,26 @@ namespace TestDatabase.SQLDB.MSSQL
         {
         }
 
-        public void Connect(string ip, int port, string dbName, string user, string password, int minPoolSize, int maxPoolSize)
+        public DbConnectInfo MakeConnectInfo(string connectString)
+        {
+            TripleDESCryptoService crypto = new TripleDESCryptoService();
+            string decode = crypto.Decrypt(connectString);
+
+            var obj = JsonConvert.DeserializeObject(decode) as JObject;
+
+            return new DbConnectInfo()
+            {
+                Ip = obj.GetValue("address").ToString(),
+                Port = Convert.ToInt32(obj.GetValue("port").ToString()),
+                DbName = obj.GetValue("DBName").ToString(),
+                User = obj.GetValue("User").ToString(),
+                Password = obj.GetValue("PassWD").ToString(),
+                MinPoolSize = 1,
+                MaxPoolSize = 100
+            };
+        }
+
+        public void Connect(string ip, int port, string dbName, string user, string password, int minPoolSize = 1, int maxPoolSize = 100)
         {
             _connection = new SqlConnection($"server={ip},{port};database={dbName};uid={user};pwd={password};Min Pool Size={minPoolSize};Max Pool Size={maxPoolSize}");
             _connection.Open();
@@ -31,7 +53,7 @@ namespace TestDatabase.SQLDB.MSSQL
 #endif
         }
 
-        public async Task ConnectAsync(string ip, int port, string dbName, string user, string password, int minPoolSize, int maxPoolSize)
+        public async Task ConnectAsync(string ip, int port, string dbName, string user, string password, int minPoolSize = 1, int maxPoolSize = 100)
         {
             _connection = new SqlConnection($"server={ip},{port};database={dbName};uid={user};pwd={password};Min Pool Size={minPoolSize};Max Pool Size={maxPoolSize}");
             await _connection.OpenAsync();

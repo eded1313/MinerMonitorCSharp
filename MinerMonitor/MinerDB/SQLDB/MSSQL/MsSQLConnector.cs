@@ -28,7 +28,7 @@ namespace TestDatabase.SQLDB.MSSQL
         {
         }
 
-        public void Connect(string ip, int port, string dbName, string user, string password, int minPoolSize, int maxPoolSize)
+        public void Connect(string ip, int port, string dbName, string user, string password, int minPoolSize = 1, int maxPoolSize = 100)
         {
             _connection = new SqlConnection($"server={ip},{port};database={dbName};uid={user};pwd={password};Min Pool Size={minPoolSize};Max Pool Size={maxPoolSize}");
             var openTask = _connection.OpenAsync();
@@ -39,7 +39,7 @@ namespace TestDatabase.SQLDB.MSSQL
 #endif
         }
 
-        public async Task ConnectAsync(string ip, int port, string dbName, string user, string password, int minPoolSize, int maxPoolSize)
+        public async Task ConnectAsync(string ip, int port, string dbName, string user, string password, int minPoolSize = 1, int maxPoolSize = 100)
         {
             _connection = new SqlConnection($"server={ip},{port};database={dbName};uid={user};pwd={password};Min Pool Size={minPoolSize};Max Pool Size={maxPoolSize}");
             await _connection.OpenAsync();

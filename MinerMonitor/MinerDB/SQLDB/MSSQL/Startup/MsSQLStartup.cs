@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using MinerDB.DBConnect;
 
 namespace TestDatabase.SQLDB.MSSQL.Startup

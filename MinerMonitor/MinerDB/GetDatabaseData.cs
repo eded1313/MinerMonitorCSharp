@@ -89,7 +89,7 @@ namespace TestDatabase
 
     class GetDatabaseUsingQuery : TransactionQuery
     {
-        protected override string TableName => "t_miner_server";
+        protected override string TableName => "t_device_info";
 
         private string _host;
         public string Host
@@ -126,20 +126,21 @@ namespace TestDatabase
             set { _deviceName = value; }
         }
 
-        public GetDatabaseUsingQuery(string host, int port, string user, string passwd, string deviceName, bool isNew)
+        public GetDatabaseUsingQuery(string device_id, string host, int port, string user, string passwd, string deviceName, bool isNew)
         {
-            Initialize(host, port, user, passwd, deviceName, isNew);
+            Initialize(device_id, host, port, user, passwd, deviceName, isNew);
         }
 
-        private void Initialize(string host, int port, string user, string passwd, string deviceName, bool isNew)
+        private void Initialize(string device_id, string host, int port, string user, string passwd, string deviceName, bool isNew)
         {
             _rowValues = new Dictionary<string, RowValue>()
             {
-                { "host", new RowValue("db_host", host, keyIndex: 1) },
-                { "port", new RowValue("db_port", port, keyIndex: 2) },
-                { "user", new RowValue("db_user", user) },
-                { "passwd", new RowValue("db_passwd", passwd) },
-                { "deviceName", new RowValue("db_device", deviceName) }
+                { "device", new RowValue("device_id", device_id) },
+                { "host", new RowValue("host", host) },
+                { "port", new RowValue("port", port) },
+                { "user", new RowValue("user_id", user) },
+                { "passwd", new RowValue("password", passwd) },
+                { "deviceName", new RowValue("device_name", deviceName) }
             };
 
             if (isNew)
