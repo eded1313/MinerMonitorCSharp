@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -36,7 +35,7 @@ namespace MinerDB.DBConnect
         protected SqlHelper(string connType)
         {
             string strConnection = GetConnectionString(connType);
-            DbAccess = new Microsoft.Practices.EnterpriseLibrary.Data.Sql.SqlDatabase(strConnection);
+            //DbAccess = new Microsoft.Practices.EnterpriseLibrary.Data.Sql.SqlDatabase(strConnection);
         }
 
         void IDisposable.Dispose()
@@ -45,7 +44,7 @@ namespace MinerDB.DBConnect
         #endregion
 
         #region ================= Properties =================
-        protected Database DbAccess;
+        //protected Database DbAccess;
         #endregion
 
         #region ================= Method =================
@@ -90,7 +89,7 @@ namespace MinerDB.DBConnect
         {
             foreach (var (key, value) in parameters)
             {
-                this.DbAccess.AddInParameter(dbCommand, key, DbType.AnsiString, value);
+                //this.DbAccess.AddInParameter(dbCommand, key, DbType.AnsiString, value);
             }
         }
 

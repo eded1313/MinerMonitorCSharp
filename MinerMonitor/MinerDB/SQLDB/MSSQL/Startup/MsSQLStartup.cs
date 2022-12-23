@@ -5,9 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using MinerDB.DBConnect;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TestDatabase.SQLDB.MSSQL.Startup
 {
+    static public class DBName
+    {
+        static public string Miner = "Miner";
+    }
     static public class MsSQLStartup
     {
         //static public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
@@ -31,27 +37,22 @@ namespace TestDatabase.SQLDB.MSSQL.Startup
         //    QueryHandler.Initialize(provider.GetRequiredService<IDBConnectorFactory>());
         //}
 
-        public static void StartUpMSSQL(string connectString)
-        {
-            var connectInfo = GetConnectInfo(connectString);
-
-            var factory = new MsSQLConnectorFactory(connectInfo);
-            factory.Create(0, "DBName");
-        }
-
-        private static DbConnectInfo GetConnectInfo(string connType)
+        public static DbConnectInfo MSSQLConnectInfo(string connectString)
         {
             TripleDESCryptoService crypto = new TripleDESCryptoService();
-            var arr = crypto.Decrypt(connType).Split(";");
+            string decode = crypto.Decrypt(connectString);
 
-            return new DbConnectInfo() { 
-                DbName = "",
-                Ip = "",
-                MaxPoolSize = 0,
-                MinPoolSize = 0,
-                Password = "",
-                Port = 0,
-                User = ""
+            var obj = JsonConvert.DeserializeObject(decode) as JObject;
+
+            return new DbConnectInfo()
+            {
+                Ip = obj.GetValue("address").ToString(),
+                Port = Convert.ToInt32(obj.GetValue("port").ToString()),
+                DbName = obj.GetValue("DBName").ToString(),
+                User = obj.GetValue("User").ToString(),
+                Password = obj.GetValue("PassWD").ToString(),
+                MinPoolSize = 1,
+                MaxPoolSize = 100
             };
         }
     }

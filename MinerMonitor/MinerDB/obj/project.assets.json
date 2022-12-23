@@ -11,27 +11,6 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.Practices.EnterpriseLibrary.2008/4.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/Microsoft.Practices.EnterpriseLibrary.Common.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.Data.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.Logging.dll": {},
-          "lib/Microsoft.Practices.ObjectBuilder2.dll": {}
-        },
-        "runtime": {
-          "lib/Microsoft.Practices.EnterpriseLibrary.Common.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.Data.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll": {},
-          "lib/Microsoft.Practices.EnterpriseLibrary.Logging.dll": {},
-          "lib/Microsoft.Practices.ObjectBuilder2.dll": {}
-        }
-      },
       "Microsoft.Win32.Registry/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -179,24 +158,6 @@
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Microsoft.Practices.EnterpriseLibrary.2008/4.1.0": {
-      "sha512": "hlS0n8T3NGE78FdonHGkboBDunohDk31vZ85hSiz5H58uDAE/CaRzOSX8WkZ/GbJ3zYI1lnRMyOH9MA120QPMg==",
-      "type": "package",
-      "path": "microsoft.practices.enterpriselibrary.2008/4.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/Microsoft.Practices.EnterpriseLibrary.Common.dll",
-        "lib/Microsoft.Practices.EnterpriseLibrary.Data.dll",
-        "lib/Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll",
-        "lib/Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll",
-        "lib/Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll",
-        "lib/Microsoft.Practices.EnterpriseLibrary.Logging.dll",
-        "lib/Microsoft.Practices.ObjectBuilder2.dll",
-        "microsoft.practices.enterpriselibrary.2008.4.1.0.nupkg.sha512",
-        "microsoft.practices.enterpriselibrary.2008.nuspec"
       ]
     },
     "Microsoft.Win32.Registry/4.7.0": {
@@ -528,7 +489,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Microsoft.Practices.EnterpriseLibrary.2008 >= 4.1.0",
       "Newtonsoft.Json >= 13.0.2",
       "System.Data.SqlClient >= 4.8.5"
     ]
@@ -577,10 +537,6 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
-          "Microsoft.Practices.EnterpriseLibrary.2008": {
-            "target": "Package",
-            "version": "[4.1.0, )"
-          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.2, )"
@@ -608,17 +564,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "프로젝트 대상 프레임워크 '.NETCoreApp,Version=v3.1' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'Microsoft.Practices.EnterpriseLibrary.2008 4.1.0'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
-      "libraryId": "Microsoft.Practices.EnterpriseLibrary.2008",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

@@ -1,5 +1,4 @@
 ﻿using MinerMonitor.Helper;
-using MinerMonitor.Utils;
 using System;
 using System.Text;
 
