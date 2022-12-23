@@ -13,11 +13,11 @@ namespace Miner.Library
 
         }
 
-        public static string Service_Miner
+        public static string MinerServer
         {
             get
             {
-                return "hLTW6IsM9SA1Z5hg5lQLVQXhIE9ZfFm3blDJeNb5XdKpP4BYQgZMMYARL4MtRnO6Yl9x9PW7zPxr2+teTqlFePYdQBG0SVbTz0RMoj2cNCPqx3SMavQypA==";
+                return "d7Pt1WHH9OZCj9eKrmsxiLewtdGZR9SWxddRuVd5mixG3Dq3nwSnQaPGCqq+ynxJvuYYPUE+J3YO28ocxcLT1yzxzP5EdvIoex44in1snBYElskye5A9Lc6KEBYl8J2cIpjXncHweU8=";
             }
         }
     }
