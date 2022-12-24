@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MinerDB.DBConnect
+namespace MDB.DBConnect
 {
     public enum DatabaseExecuteType
     { 

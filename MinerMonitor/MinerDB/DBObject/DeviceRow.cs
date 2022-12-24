@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MDB.SQLDB;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using TestDatabase.SQLDB;
 
-namespace MinerDB.RowObject
+
+namespace MDB.DBObject
 {
     public class DeviceRow : TransactionQuery
     {
@@ -54,7 +55,7 @@ namespace MinerDB.RowObject
         {
             _rowValues = new Dictionary<string, RowValue>()
             {
-                { "device_id", new RowValue("device_id", device_id, keyIndex: 1, isDefaultSet: true) },
+                { "device_id", new RowValue("device_id", device_id, keyIndex: 1) },
                 { "host", new RowValue("host", host) },
                 { "port", new RowValue("port", port) },
                 { "user", new RowValue("user_id", user) },

@@ -6,12 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MinerDB\MinerDB.csproj" />
     <ProjectReference Include="..\MinerMonitor\MinerMonitor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="MinerDB">
       <HintPath>..\..\..\DLL_Build\netcoreapp3.1\MinerDB.dll</HintPath>
+      <Private>true</Private>
     </Reference>
     <Reference Include="MinerSlack">
       <HintPath>..\..\..\DLL_Build\netcoreapp3.1\MinerSlack.dll</HintPath>

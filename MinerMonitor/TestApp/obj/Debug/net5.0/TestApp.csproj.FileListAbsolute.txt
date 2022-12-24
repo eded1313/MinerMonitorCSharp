@@ -9,6 +9,8 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\TestApp.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\ref\TestApp.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\TestApp.pdb
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\Microsoft.Practices.EnterpriseLibrary.Data.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -40,6 +42,7 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\Renci.SshNet.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\SshNet.Security.Cryptography.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.Data.SqlClient.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.Diagnostics.EventLog.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
@@ -49,13 +52,18 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.ServiceProcess.ServiceController.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.Text.Encodings.Web.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\System.Text.Json.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.AccessControl.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerDB.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerMonitor.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerSlack.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerDB.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerMonitor.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerMonitor.dll.config
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerDB.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\bin\Debug\net5.0\MinerSlack.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\net5.0\TestApp.csproj.AssemblyReference.cache
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\TestApp\obj\Debug\net5.0\TestApp.GeneratedMSBuildEditorConfig.editorconfig

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ofGtGBUA5K1yHe5lKS7mKhdnYzpmKGLC/v/Ci2SC4MUT+eMqviigbkrlJwx+pnVn3FbDLK886KhDaO2q2ZmQqg==",
+  "dgSpecHash": "PlL1GMDI+yUlBzrKV2GPJgVHtkCpcjTrZLY87kB0umdv7KVRYjKhb/dYpQpc1dnTqNrdXUPCNavynp43E3Wzsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\서정훈\\Desktop\\Work\\Git-CSharp\\MinerMonitor\\MinerDB\\MinerDB.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\서정훈\\.nuget\\packages\\enterpriselibrary.common\\6.0.1304\\enterpriselibrary.common.6.0.1304.nupkg.sha512",
+    "C:\\Users\\서정훈\\.nuget\\packages\\enterpriselibrary.data\\6.0.1304\\enterpriselibrary.data.6.0.1304.nupkg.sha512",
     "C:\\Users\\서정훈\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\서정훈\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\서정훈\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
@@ -15,5 +17,36 @@
     "C:\\Users\\서정훈\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\서정훈\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "EnterpriseLibrary.Data 6.0.1304은(는) EnterpriseLibrary.Common (>= 6.0.0)에 종속되어 있지만 EnterpriseLibrary.Common 6.0.0을(를) 찾을 수 없습니다. 대략적으로 가장 잘 일치하는 EnterpriseLibrary.Common 6.0.1304이(가) 확인되었습니다.",
+      "libraryId": "EnterpriseLibrary.Common",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 '.NETCoreApp,Version=v3.1' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'EnterpriseLibrary.Common 6.0.1304'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "EnterpriseLibrary.Common",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 '.NETCoreApp,Version=v3.1' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'EnterpriseLibrary.Data 6.0.1304'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "EnterpriseLibrary.Data",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

@@ -1,6 +1,7 @@
-﻿using MDatabase;
-using MinerDB.RowObject;
+﻿using MDB;
+using MDB.DBObject;
 using MinerMonitor.Helper;
+using MinerSlack;
 using System;
 using System.Text;
 
@@ -11,6 +12,18 @@ namespace TestApp
         static void Main(string[] args)
         {
             DBExecutor executor = new DBExecutor(DBConnType.MinerServer);
+            executor.ProcedureInitialize();
+
+            var spGetDevice = new SpetServerInfo(MDB.SQLDB.MSSQL.Startup.DBName.Miner, 0, null);
+            if (!spGetDevice.Execute())
+            {
+                return;
+            }
+            else
+            { 
+
+            }
+
 
             string deviceId = "miner" + RandomDevice.GetRandomID();
 
@@ -23,6 +36,16 @@ namespace TestApp
             DeviceRow row = new DeviceRow(deviceId, host, port, user, passwd, deviceName, true);
 
             executor.ExecuteQuery(row);
+            //executor.ExecuteDatabaseSync(row);
+
+
+            //var msgOption = SlackOption.MakeSlackOption(SlackOption.GetSlackMsgColor(ResultType.SUCCESS), "Miner Log Device: " + deviceName, "TesttestTesttest");
+            //SlackAPI slack = new SlackAPI(SlackChannel.TEST_SLACK_WEBHOOK);
+            //if (!await slack.ExecuteAsync(msgOption))
+            //{
+            //    Console.WriteLine("using slack bot send message fail");
+            //    return;
+            //}
         }
     }
 }

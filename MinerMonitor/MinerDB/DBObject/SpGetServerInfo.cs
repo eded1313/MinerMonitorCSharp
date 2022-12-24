@@ -1,11 +1,11 @@
-﻿using System;
+﻿using MDB.SQLDB;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Text;
-using TestDatabase.SQLDB;
 
-namespace MinerDB.RowObject
+namespace MDB.DBObject
 {
     public class SpetServerInfo : QueryHandler
     {

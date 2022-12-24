@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "EnterpriseLibrary.Common/6.0.1304": {
+        "type": "package",
+        "compile": {
+          "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Common.dll": {}
+        },
+        "runtime": {
+          "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Common.dll": {}
+        }
+      },
+      "EnterpriseLibrary.Data/6.0.1304": {
+        "type": "package",
+        "dependencies": {
+          "EnterpriseLibrary.Common": "6.0.0"
+        },
+        "compile": {
+          "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Data.dll": {}
+        },
+        "runtime": {
+          "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Data.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -143,6 +164,41 @@
     }
   },
   "libraries": {
+    "EnterpriseLibrary.Common/6.0.1304": {
+      "sha512": "w/ua1PWAQD1/CnJ+qz/5APgmqI/1YnbamnwFGSotm7b66sFIkrnfLC+9+WzcSZWnePwwUw3Pl2QsLVDyX7NwaQ==",
+      "type": "package",
+      "path": "enterpriselibrary.common/6.0.1304",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "EnterpriseLibrary.Configuration.xsd",
+        "Update-EntlibConfiguration.ps1",
+        "enterpriselibrary.common.6.0.1304.nupkg.sha512",
+        "enterpriselibrary.common.nuspec",
+        "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Common.dll",
+        "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Common.xml",
+        "tools/Utils.psm1",
+        "tools/install.ps1"
+      ]
+    },
+    "EnterpriseLibrary.Data/6.0.1304": {
+      "sha512": "FmaIrwbO7qOg0hd6rESeltyxcOccBa9V5QXPQ/4vMzpqZXh457uiJcwV4Xtx8q1zFhiGq1AszYjWP1p69Qps+w==",
+      "type": "package",
+      "path": "enterpriselibrary.data/6.0.1304",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Readme.txt",
+        "enterpriselibrary.data.6.0.1304.nupkg.sha512",
+        "enterpriselibrary.data.nuspec",
+        "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Data.dll",
+        "lib/NET45/Microsoft.Practices.EnterpriseLibrary.Data.xml",
+        "tools/Utils.psm1",
+        "tools/install.ps1"
+      ]
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -489,6 +545,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "EnterpriseLibrary.Data >= 6.0.1304",
       "Newtonsoft.Json >= 13.0.2",
       "System.Data.SqlClient >= 4.8.5"
     ]
@@ -537,6 +594,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "EnterpriseLibrary.Data": {
+            "target": "Package",
+            "version": "[6.0.1304, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.2, )"
@@ -564,5 +625,37 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "EnterpriseLibrary.Data 6.0.1304은(는) EnterpriseLibrary.Common (>= 6.0.0)에 종속되어 있지만 EnterpriseLibrary.Common 6.0.0을(를) 찾을 수 없습니다. 대략적으로 가장 잘 일치하는 EnterpriseLibrary.Common 6.0.1304이(가) 확인되었습니다.",
+      "libraryId": "EnterpriseLibrary.Common",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 '.NETCoreApp,Version=v3.1' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'EnterpriseLibrary.Common 6.0.1304'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "EnterpriseLibrary.Common",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 '.NETCoreApp,Version=v3.1' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8'을(를) 사용하여 패키지 'EnterpriseLibrary.Data 6.0.1304'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "EnterpriseLibrary.Data",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

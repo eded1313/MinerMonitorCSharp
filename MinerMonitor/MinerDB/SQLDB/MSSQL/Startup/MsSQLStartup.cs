@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using MinerDB.DBConnect;
+using MDB.DBConnect;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace TestDatabase.SQLDB.MSSQL.Startup
+namespace MDB.SQLDB.MSSQL.Startup
 {
     static public class DBName
     {

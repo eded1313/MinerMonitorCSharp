@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MinerDB.DBConnect
+namespace MDB.DBConnect
 {
     public class MD5CryptoService
     {

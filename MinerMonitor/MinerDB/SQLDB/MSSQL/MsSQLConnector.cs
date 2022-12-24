@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestDatabase.SQLDB.MSSQL
+namespace MDB.SQLDB.MSSQL
 {
     public class MsSQLConnector : IDbConnector, IDisposable
     {

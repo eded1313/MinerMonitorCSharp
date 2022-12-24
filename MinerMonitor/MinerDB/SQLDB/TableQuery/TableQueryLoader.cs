@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestDatabase.SQLDB
+namespace MDB.SQLDB
 {
     public class TableQueryLoader : TableQueryHandler
     {

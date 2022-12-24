@@ -1,7 +1,3 @@
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.AssemblyInfoInputs.cache
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.AssemblyInfo.cs
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.csproj.CoreCompileInputs.cache
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcoreapp3.1\MinerDB.exe
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcoreapp3.1\MinerDB.deps.json
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcoreapp3.1\MinerDB.runtimeconfig.json
@@ -21,9 +17,13 @@ C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcor
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.dll
-C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.pdb
 C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\서정훈\Desktop\Work\DLL_Build\netcoreapp3.1\MinerDB.deps.json
 C:\Users\서정훈\Desktop\Work\DLL_Build\netcoreapp3.1\MinerDB.dll
 C:\Users\서정훈\Desktop\Work\DLL_Build\netcoreapp3.1\MinerDB.pdb
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.AssemblyInfoInputs.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.AssemblyInfo.cs
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.csproj.CoreCompileInputs.cache
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.dll
+C:\Users\서정훈\Desktop\Work\Git-CSharp\MinerMonitor\MinerDB\obj\Debug\netcoreapp3.1\MinerDB.pdb
