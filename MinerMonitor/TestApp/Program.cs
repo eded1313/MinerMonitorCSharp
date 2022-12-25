@@ -3,6 +3,7 @@ using MDB.DBObject;
 using MinerMonitor.Helper;
 using MinerSlack;
 using System;
+using System.Linq;
 using System.Text;
 
 namespace TestApp
@@ -24,8 +25,9 @@ namespace TestApp
 
             }
 
+            var list = spGetDevice.DeviceList.Select(x => Convert.ToInt32(x.Device.Substring(5))).ToList();
 
-            string deviceId = "miner" + RandomDevice.GetRandomID();
+            string deviceId = "miner" + RandomDevice.GetRandomID(list);
 
             string host = "115.94.18.238";
             int port = 33338;
